@@ -1,0 +1,66 @@
+
+
+h1, h2, h3 {
+    color: #238acb;
+}
+
+.horizon {
+    top: 0px;
+}
+
+.middle {
+    width: 2500px;
+}
+
+.front {
+    width: 6000px;
+    z-index: 500;
+    top: 150px;
+}
+
+.txt {
+  top: 150px;
+}
+
+.page {
+    background: white none repeat scroll 0 0;
+    border: 1px solid #eee;
+    padding: 10px 30px;
+    position: absolute;
+    top: 0;
+    width: 500px;
+}
+
+.intro {
+    background: rgba(0, 0, 0, 0) url("../images/scroll.png") no-repeat scroll right 5px;
+    left: 500px;
+    padding-right: 50px;
+    position: absolute;
+    top: 0;
+}
+
+.description {
+    left: 1000px;
+}
+
+.painting {
+    border: none;
+    padding: none;
+    position: absolute;
+    vertical-align: top;
+    top: -50px;
+}
+
+.first {
+      left: 1800px;
+}
+
+#cat-close-up {
+      width: 50%;
+      height: auto;
+      box-shadow: 1px 6px 10px #888888;
+      padding: 1px;
+      border-style: double;
+      border-width: 2px;
+      border-color: #3B3936;
+}

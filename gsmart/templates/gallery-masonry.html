@@ -1,0 +1,39 @@
+{% extends 'head.html' %}
+
+{% block background %}
+    <div class="horizon scroll">
+      <img src="/static/img/background.png" alt="" />
+    </div>
+
+<!--
+    <div class="middle scroll">
+      <img src="/static/img/middle.png" alt="" />
+    </div>
+  -->
+
+{% endblock %}
+
+{% block content %}
+      <div class="grid-container">
+          <div class="grid js-masonry" data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": 50 }'>
+
+          {% for piece in pieces %}
+          {% if piece.orientation == 'L' %}
+              <div class="grid-sizer">
+                  <img class="collage-painting" src="{{piece.thumbnail_image.url}}">
+              </div>
+          {% elif piece.orientation == 'P' %}
+              <div class="grid-item grid-item--height2">
+                  <img class="collage-painting" src="{{piece.thumbnail_image.url}}">
+              </div>
+          {% elif piece.orientation == 'O' %}
+              <div class="grid-item grid-item--width2">
+                  <img class="collage-painting" src="{{piece.thumbnail_image.url}}">
+              </div>
+          {% endif %}
+          {% endfor %}
+
+          </div>
+      </div>
+
+{% endblock %}

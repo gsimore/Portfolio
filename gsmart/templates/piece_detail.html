@@ -1,7 +1,25 @@
 {% extends 'head.html' %}
 
-{% block content %}
-<div id="piece-title"><h1>{{  piece.title  }}</h1></div>
+{% block background %}
+    <div class="horizon scroll">
+      <img id="detail-background" style="height: 100%;" src="/static/img/single-gallery-wall.png" alt="" />
+    </div>
 
-<img src="/static/{{piece.small_image}}">
+<!--
+<div class="middle scroll">
+      <img src="/static/img/middle.png" alt="" />
+    </div>
+-->
+
+{% endblock %}
+
+{% block content %}
+<div id="piece-title" class="detail-plaque">
+    <h1>{{  piece.title  }}</h1>
+</div>
+
+<div class="img-detail">
+    <img id="zoom_01" src="{{piece.thumbnail_image.url}}" data-zoom-image="{{piece.large_image.url}}"/>
+</div>
+
 {% endblock %}

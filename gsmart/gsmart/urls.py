@@ -16,9 +16,15 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from portfolio import views
+from django.contrib.staticfiles.urls import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^portfolio/', views.home),
     url(r'^title/(?P<title>.+)/', views.piece_detail),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

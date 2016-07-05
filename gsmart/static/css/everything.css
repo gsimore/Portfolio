@@ -1,11 +1,12 @@
 
-
 h1, h2, h3 {
-    color: #238acb;
+    color: white;
 }
 
 .horizon {
     top: 0px;
+    width: 4500px;
+    position: absolute;
 }
 
 .middle {
@@ -33,7 +34,7 @@ h1, h2, h3 {
 
 .intro {
     background: rgba(0, 0, 0, 0) url("../images/scroll.png") no-repeat scroll right 5px;
-    left: 500px;
+    left: 321px;
     padding-right: 50px;
     position: absolute;
     top: 0;
@@ -43,16 +44,109 @@ h1, h2, h3 {
     left: 1000px;
 }
 
-.painting {
-    border: none;
-    padding: none;
+#gallery-container {
+    position: relative;
+}
+.collage-tile {
+    left: 1644px;
+    top: -80px;
     position: absolute;
-    vertical-align: top;
-    top: -50px;
 }
 
-.first {
-      left: 1800px;
+.collage-tile img {
+}
+
+.collage-tile-2 {
+    float: left;
+    left: 1344px;
+    margin-left: 20em;
+    position: relative;
+    top: -80px;
+}
+
+.painting {
+    position: relative;;
+    vertical-align: top;
+    box-shadow: 4px 20px 20px #888888;
+    padding: 2px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #F2F1E6;
+    background-color: #F2F1D6;
+    opacity: 0.6;
+}
+
+.painting:hover {
+    opacity: 1;
+}
+
+.painting-2 {
+    left: 750px;
+    position: relative;
+    vertical-align: top;
+    box-shadow: 4px 20px 20px #888888;
+    padding: 2px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #F2F1E6;
+    background-color: #F2F1D6;
+    opacity: 0.6;
+}
+
+.painting-2:hover {
+    opacity: 1;
+}
+
+.plaque {
+    left: 524px;
+    top: 196px;
+    width: 130px;
+    position: absolute;
+    font-size: 0.8em;
+    box-shadow: 4px 10px 10px #888888;
+    padding: 2px;
+    border-style: double;
+    border-width: 5px;
+    border-color: #3B3936;
+    background-color: #F2F1D6;
+    opacity: 0.80;
+}
+
+.plaque-2 {
+    left: 1300px;
+    top: -102px;
+    width: 130px;
+    position: relative;
+    font-size: 0.8em;
+    box-shadow: 4px 10px 10px #888888;
+    padding: 2px;
+    border-style: double;
+    border-width: 5px;
+    border-color: #3B3936;
+    background-color: #F2F1D6;
+    opacity: 0.80;
+}
+
+.img-detail {
+    left: 500px;
+    top: -50px;
+    width: auto;
+    position: absolute;
+    vertical-align: top;
+    box-shadow: 4px 20px 20px #888888;
+}
+
+.detail-plaque {
+
+}
+
+#plaque-02 {
+
+}
+
+#detail-background {
+      width: 2048px;
+      height: auto;
 }
 
 #cat-close-up {
@@ -63,4 +157,9 @@ h1, h2, h3 {
       border-style: double;
       border-width: 2px;
       border-color: #3B3936;
+}
+
+#gallery-container {
+
+
 }

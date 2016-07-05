@@ -4,7 +4,8 @@ from .models import Piece
 # Create your views here.
 
 def home(request):
-    return render(request, 'gallery.html')
+    pieces = Piece.objects.order_by('image_rank')
+    return render(request, 'gallery.html', {'pieces':pieces})
 
 def piece_detail(request, title):
     piece = Piece.objects.get(title=title)

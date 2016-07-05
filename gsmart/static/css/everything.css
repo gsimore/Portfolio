@@ -58,8 +58,7 @@ h1, h2, h3 {
 
 .collage-tile-2 {
     float: left;
-    left: 1344px;
-    margin-left: 20em;
+    margin-left: 50em;
     position: relative;
     top: -80px;
 }
@@ -81,7 +80,6 @@ h1, h2, h3 {
 }
 
 .painting-2 {
-    left: 750px;
     position: relative;
     vertical-align: top;
     box-shadow: 4px 20px 20px #888888;
@@ -113,18 +111,18 @@ h1, h2, h3 {
 }
 
 .plaque-2 {
-    left: 1300px;
-    top: -102px;
-    width: 130px;
-    position: relative;
-    font-size: 0.8em;
-    box-shadow: 4px 10px 10px #888888;
-    padding: 2px;
+    background-color: #f2f1d6;
+    border-color: #3b3936;
     border-style: double;
     border-width: 5px;
-    border-color: #3B3936;
-    background-color: #F2F1D6;
-    opacity: 0.80;
+    bottom: 0;
+    box-shadow: 4px 10px 10px #888888;
+    font-size: 0.8em;
+    left: -140px;
+    opacity: 0.8;
+    padding: 2px;
+    position: absolute;
+    width: 130px;
 }
 
 .img-detail {

@@ -18,24 +18,6 @@
 
        <div id="gallery-container">
        {% for piece in pieces %}
-        {% if forloop.first %}
-
-        <div id="collage-01" class="collage-tile">
-            <div id="image-01" class="painting">
-                <img src="{{piece.thumbnail_image.url}}">
-            </div>
-            <div class="plaque">
-                <div>
-                    <b>{{piece.title}}</b>
-                    <br>
-                    {{piece.width_in}} in x {{piece.height_in}} in
-                    <br>
-                    {{piece.finish_date}}
-                </div>
-            </div>
-        </div>
-
-        {% else %}
 
         <div id="collage-02" class="collage-tile-2">
             <div id="image-02" class="painting-2">
@@ -52,7 +34,6 @@
             </div>
         </div>
 
-        {% endif %}
     {% endfor %}
 {% endblock %}
   </div>

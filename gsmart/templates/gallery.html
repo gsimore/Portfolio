@@ -21,15 +21,17 @@
 
         <div id="collage-02" class="collage-tile-2">
             <div id="image-02" class="painting-2">
+                <a href="{% url 'piece_detail' title=piece.title %}">
                 <img src="{{piece.thumbnail_image.url}}">
+                </a>
             </div>
             <div class="plaque-2">
                 <div>
                     <b>{{piece.title}}</b>
                     <br>
-                    {{piece.width_in}} in x {{piece.height_in}} in
+                    {{piece.width_in}}x{{piece.height_in}}"
                     <br>
-                    {{piece.finish_date}}
+                    {{piece.medium}}
                 </div>
             </div>
         </div>

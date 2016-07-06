@@ -1,7 +1,7 @@
 {% extends 'head.html' %}
 
 {% block background %}
-    <div class="horizon scroll">
+    <div class="horizon">
       <img id="detail-background" style="height: 100%;" src="/static/img/single-gallery-wall.png" alt="" />
     </div>
 
@@ -14,12 +14,44 @@
 {% endblock %}
 
 {% block content %}
+
+{% if piece.orientation == 'L' %}
+
+    <div id="piece-title" class="detail-plaque">
+        <span class="title-text"><b>{{  piece.title  }}</b></span>
+        <br>
+        <span class="sub-text">{{piece.medium}}</span>
+        <br>
+        <span class="sub-text2">{{piece.width_in}} in x {{piece.height_in}} in </span>
+        <br>
+        <br>
+        <span class="sub-text3">{{ piece.description}}</span>
+    </div>
+
+    <div class="img-detail">
+        <img id="zoom_01" src="{{piece.small_image.url}}" data-zoom-image="{{piece.large_image.url}}"/>
+    </div>
+
+{% elif piece.orientation == 'P' %}
+
 <div id="piece-title" class="detail-plaque">
-    <h1>{{  piece.title  }}</h1>
+    <span class="title-text"><b>{{  piece.title  }}</b></span>
+    <br>
+    <span class="sub-text">{{piece.medium}}</span>
+    <br>
+    <span class="sub-text2">{{piece.width_in}} in x {{piece.height_in}} in </span>
+    <br>
+    <br>
+    <span class="sub-text3">{{ piece.description}}</span>
 </div>
 
 <div class="img-detail">
     <img id="zoom_01" src="{{piece.thumbnail_image.url}}" data-zoom-image="{{piece.large_image.url}}"/>
 </div>
 
+<div id="portrait-display">
+    <img id="zoom_02" src="{{piece.small_image.url}}" data-zoom-image="{{piece.large_image.url}}"/>
+</div>
+
+{% endif %}
 {% endblock %}

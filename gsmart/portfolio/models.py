@@ -20,6 +20,7 @@ class Piece(models.Model):
     draft = models.BooleanField(default=True)
     image_rank = models.IntegerField()
     collage_placement = models.PositiveIntegerField()
+    medium = models.CharField(max_length=100)
 
     def __str__(self):
         return self.title

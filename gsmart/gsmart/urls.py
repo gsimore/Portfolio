@@ -22,8 +22,8 @@ import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^portfolio/', views.home),
-    url(r'^title/(?P<title>.+)/', views.piece_detail, name='piece_detail'),
+    url(r'^portfolio/', views.home, name='gallery'),
+    url(r'^art/(?P<slug>.+)/', views.piece_detail, name='piece_detail'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

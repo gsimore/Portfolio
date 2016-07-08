@@ -5,23 +5,27 @@
       <img src="/static/img/background.png" alt="" />
     </div>
 
-<!--
     <div class="middle scroll">
-      <img src="/static/img/middle.png" alt="" />
+      <img src="/static/img/middle-1.png" alt="" />
     </div>
-  -->
 
 {% endblock %}
 
-{% block content %}
 
+{% block content %}
+<div class="front scroll">
+    <h3 class="txt intro">G.S-M./Art</h3>
+
+      <div id="gallery-welcome" class="title-text">
+        <b> Gallery >> </b>
+       </div>
 
        <div id="gallery-container">
        {% for piece in pieces %}
 
         <div id="collage-02" class="collage-tile-2">
             <div id="image-02" class="painting-2">
-                <a href="{% url 'piece_detail' title=piece.title %}">
+                <a href="{% url 'piece_detail' slug=piece.slug %}">
                 <img src="{{piece.thumbnail_image.url}}">
                 </a>
             </div>

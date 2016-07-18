@@ -25,7 +25,12 @@ body {
 .horizon {
     top: 0px;
     width: 5000px;
+    height: 100%;
     position: absolute;
+}
+
+.horizon img {
+    height: 100%;
 }
 
 .horizon-small {
@@ -34,23 +39,29 @@ body {
     position: absolute;
 }
 
+.horizon-small {
+    height: 100%;
+}
+
 .middle {
-    margin-left: 1097px;
+    margin-left: 100%;
 }
 
 .middle img {
-    width: 8000px;
+    width: 10000px;
+    height: 100%
 }
 
 .front {
-    width: 8000px;
+    width: 8650px;
+    height: 100%;
     z-index: 500;
     top: 150px;
 }
 
 .front-small {
     width: 1300px;
-    z-index: 500;
+    z-index: 600;
     top: 150px;
 }
 
@@ -65,10 +76,7 @@ body {
 
 .intro {
     background-color: #67918A;
-    padding-right: 20px;
-    padding-left: 80px;
-    padding-top: 15px;
-    padding-bottom: 10px;
+    padding: 0.2% 0.4% 0.15% 0.6%;
     position: absolute;
     top: -143px;
     font-family: basic;
@@ -84,14 +92,14 @@ body {
 
 #gallery-welcome {
     position: relative;
-    font-size: 3.0em;
-    margin-left: 10em;
+    font-size: 250%;
+    margin-left: 2%;
     float: left;
 }
 
 .collage-tile-2 {
     float: left;
-    margin-left: 50em;
+    margin-left: 65em;
     position: relative;
     top: -80px;
 }
@@ -110,6 +118,12 @@ body {
     border-color: #695850;
     background-color: #F2F1D6;
     opacity: 1.0;
+    max-width: 500px;
+    height: auto;
+}
+
+.painting-2 img {
+
 }
 
 .painting-2:hover {

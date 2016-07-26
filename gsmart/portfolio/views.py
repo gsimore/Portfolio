@@ -7,6 +7,7 @@ from django.template.loader import get_template
 from django.core.mail import EmailMessage
 from django.template import Context
 from django.contrib import messages
+from .models import *
 # Create your views here.
 
 def home(request):
@@ -15,11 +16,12 @@ def home(request):
 
 
 def contact(request):
+    page = Page.objects.get(slug="contact")
     form_class = ContactForm
 
     if request.method == 'POST':
         form = form_class(data=request.POST)
-        
+
         if not form.is_valid():
             message = "Invalid Form!!!"
             return render(request, 'contact.html', {'form': form_class, 'message':messages})
@@ -54,15 +56,22 @@ def contact(request):
 
             email.send()
             messages.add_message(request, messages.INFO, 'Your message was submitted!')
-            return render(request, 'contact.html', {'form': form_class, 'message':messages})
+            return render(request, 'contact.html', {'form': form_class, 'message':messages, 'page':page})
 
-    return render(request, 'contact.html', {'form': form_class})
+    return render(request, 'contact.html', {'form': form_class, 'page':page})
 
+
+
+def about(request):
+    page = Page.objects.get(slug="about")
+
+    return render(request, 'about.html', {'page':page})
 
 def gallery(request):
+    page = Page.objects.get(slug="gallery")
     pieces = Piece.objects.order_by('image_rank')
 
-    return render(request, 'gallery.html', {'pieces':pieces})
+    return render(request, 'gallery.html', locals())
 
 
 def piece_detail(request, slug):

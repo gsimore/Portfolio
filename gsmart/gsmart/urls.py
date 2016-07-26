@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^portfolio/', views.gallery, name='gallery'),
     url(r'^art/(?P<slug>.+)/', views.piece_detail, name='piece_detail'),
     url(r'^contact/$', views.contact, name='contact'),
+    url(r'^about/', views.about, name='about'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

@@ -24,7 +24,8 @@ body {
 
 .horizon {
     top: 0px;
-    width: 5000px;
+    background-color: #CBCBCB;
+    width: 7000px;
     height: 100%;
     position: absolute;
 }
@@ -35,12 +36,14 @@ body {
 
 .horizon-small {
     top: 0px;
-    width: 1200px;
     position: absolute;
+    background-color: #CBCBCB;
 }
 
-.horizon-small {
+.horizon-small img {
     height: 100%;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .middle {
@@ -53,16 +56,23 @@ body {
 }
 
 .front {
-    width: 8650px;
+    width: 11800px;
     height: 100%;
     z-index: 500;
     top: 150px;
 }
 
 .front-small {
-    width: 1300px;
+    width: 100%;
     z-index: 600;
     top: 150px;
+}
+
+.front-contact {
+  width: 100%;
+  z-index: 600;
+  top: 0px;
+  margin-left: 10em;
 }
 
 .page {
@@ -82,12 +92,21 @@ body {
     font-family: basic;
 }
 
+.detail-intro {
+    background-color: #67918A;
+    padding: 1.2% 1.4% 1.15% 3.6%;
+    position: absolute;
+    top: -143px;
+    font-family: basic;
+}
+
 .description {
     left: 1000px;
 }
 
 #gallery-container {
     position: relative;
+    margin-left: 96em;
 }
 
 #gallery-welcome {
@@ -99,7 +118,7 @@ body {
 
 .collage-tile-2 {
     float: left;
-    margin-left: 65em;
+    margin-left: 52em;
     position: relative;
     top: -80px;
 }
@@ -150,6 +169,7 @@ body {
     width: 110px;
     font-size: 0.8em;
     opacity: 1;
+    left: -120px;
 }
 
 .img-detail {

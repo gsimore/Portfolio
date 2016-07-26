@@ -1,0 +1,6 @@
+my-portfolio-env
+.pyc
+portfolio/migrations
+*migrations
+migrations
+portfolio/migrations/*

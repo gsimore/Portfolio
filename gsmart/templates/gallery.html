@@ -22,7 +22,13 @@
        <div id="gallery-container">
        {% for piece in pieces %}
 
+          {% if piece.orientation == 'L' or piece.orientation == 'O' %}
+
         <div id="collage-02" class="collage-tile-2">
+          {% elif piece.orientation == 'P' %}
+          <div id="collage-02" class="collage-tile-p">
+            {% endif %}
+
             <div id="image-02" class="painting-2">
                 <a href="{% url 'piece_detail' slug=piece.slug %}">
                 <img src="{{piece.thumbnail_image.url}}">

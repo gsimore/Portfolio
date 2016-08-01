@@ -40,7 +40,7 @@ if ( typeof Object.create !== 'function' ) {
 
 				self.elem = elem;
 				self.$elem = $( elem );
-
+        self.setElements("show");
 				self.imageSrc = self.$elem.data("zoom-image") ? self.$elem.data("zoom-image") : self.$elem.attr("src");
 
 				self.options = $.extend( {}, $.fn.elevateZoom.options, options );
@@ -448,7 +448,7 @@ if ( typeof Object.create !== 'function' ) {
 
 				}).mouseleave(function(){
 					if(!self.scrollLock){
-						self.setElements("hide");
+//						self.setElements("hide");
             self.options.onDestroy(self.$elem);
 					}
 				});

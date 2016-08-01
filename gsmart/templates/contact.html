@@ -1,35 +1,40 @@
 {% extends 'head.html' %}
 {% block title %}{{ page.subtitle }} {{ block.super }}{% endblock %}
 
+
 {% block background %}
 
-<div class="horizon-small">
-  <img id="detail-background" style="height: 100%;" src="/static/img/single-gallery-wall.png" alt="" />
-</div>
+    <div class="horizon-small">
+      <img id="detail-background" style="height: 100%;" src="/static/img/single-gallery-wall.png" alt="" />
+    </div>
 
 {% endblock %}
+
 
 {% block messages %}
 
 {% endblock %}
 
+
 {% block content %}
+
 {% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
 {% endif %}
-<div class="front-contact scroll">
 
-    <h1>Contact</h1>
-    <form role="form" action="" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
+    <div class="front-contact scroll">
 
-</div>
+        <h1>Contact</h1>
+        <form role="form" action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+
+    </div>
 
 {% endblock %}

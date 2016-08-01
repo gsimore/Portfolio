@@ -23,55 +23,68 @@ body {
 }
 
 .horizon {
-    top: 0px;
+    top: 0;
     background-color: #CBCBCB;
-    width: 7000px;
+    width: 500em;
     height: 100%;
     position: absolute;
+    top: 0;
 }
 
 .horizon img {
     height: 100%;
+    width: auto;
 }
 
 .horizon-small {
-    top: 0px;
+    top: 0;
     position: absolute;
     background-color: #CBCBCB;
+    top: 0;
 }
 
 .horizon-small img {
     height: 100%;
     width: 100%;
+    top: 0;
     overflow-x: hidden;
 }
 
 .middle {
     margin-left: 100%;
+    top: 0;
 }
 
 .middle img {
-    width: 10000px;
-    height: 100%
+    width: 900em;
+    height: 100%;
+    top: 0;
 }
 
 .front {
-    width: 11800px;
+    width: 1000em;
     height: 100%;
     z-index: 500;
-    top: 150px;
+    top: 0;
 }
 
 .front-small {
     width: 100%;
+    height: 100%;
     z-index: 600;
-    top: 150px;
+    top: 0;
+}
+
+.title-subtitle-banner {
+    z-index: 499;
+    width: 100%;
+    top: 0;
 }
 
 .front-contact {
   width: 100%;
   z-index: 600;
-  top: 0px;
+  top: 0;
   margin-left: 10em;
 }
 
@@ -88,15 +101,15 @@ body {
     background-color: #67918A;
     padding: 0.2% 0.4% 0.15% 0.6%;
     position: absolute;
-    top: -143px;
+    top:0%;
     font-family: basic;
 }
 
 .detail-intro {
     background-color: #67918A;
-    padding: 1.2% 1.4% 1.15% 3.6%;
+    padding: 1.0% 1.0% 1.0% 3.6%;
     position: absolute;
-    top: -143px;
+    top: 0%;
     font-family: basic;
 }
 
@@ -107,6 +120,8 @@ body {
 #gallery-container {
     position: relative;
     margin-left: 96em;
+    width: 100%;
+    top: 0px;
 }
 
 #gallery-welcome {
@@ -114,13 +129,23 @@ body {
     font-size: 250%;
     margin-left: 2%;
     float: left;
+    top: 40%;
 }
 
 .collage-tile-2 {
     float: left;
     margin-left: 52em;
     position: relative;
-    top: -80px;
+    top: 10em;
+    height: 58%;
+}
+
+.collage-tile-p {
+    float: left;
+    margin-left: 52em;
+    position: relative;
+    top: 8em;
+    height: 58%;
 }
 
 .painting:hover {
@@ -137,12 +162,12 @@ body {
     border-color: #695850;
     background-color: #F2F1D6;
     opacity: 1.0;
-    max-width: 500px;
-    height: auto;
+    height: 100%;
+    width: auto;
 }
 
 .painting-2 img {
-
+  max-height: 27em;
 }
 
 .painting-2:hover {
@@ -173,8 +198,8 @@ body {
 }
 
 .img-detail {
-    margin-left: 345px;
-    top: -100px;
+    margin-left: 27%;
+    top: 10%;
     position: absolute;
     vertical-align: top;
     box-shadow: 4px 20px 20px black;
@@ -182,12 +207,12 @@ body {
 }
 
 .img-detail img {
-    height: 485px;
+    max-height: 445px;
 }
 
 .img-detail-p {
-    margin-left: 345px;
-    top: -100px;
+    margin-left: 30%;
+    top: 4%;
     position: absolute;
     vertical-align: top;
     box-shadow: 4px 20px 20px black;
@@ -195,7 +220,7 @@ body {
 }
 
 .img-detail-p img {
-    height: 500px;
+    max-height: 485px;
 }
 
 #zoom-container-container {
@@ -206,8 +231,8 @@ body {
   width: 450px;
   height: 500px;
   position: relative;
-  margin-left: 750px;
-  top: -100px;
+  margin-left: 57%;
+  top: 4%;
   z-index: 1;
 }
 
@@ -228,16 +253,17 @@ body {
 .detail-plaque {
     position: absolute;
     background-color: black;
-    left: 70px;
+    margin-left: 5%;
     padding: 20px;
-    top: -50px;
-    width: 240px;
-    height: 88%;
+    top: 100px;
+    width: 20%;
+    height: 68%;
     overflow-y: auto;
+    margin-bottom: 10%;
 }
 
 .detail-plaque:hover {
-
+    border: 1px solid white;
 }
 
 .title-text, .sub-text, .sub-text2, .sub-text3 {
@@ -264,7 +290,7 @@ body {
 
 #portrait-display {
     position: absolute;
-    top: -100px;
+    top: 50px;
     left: 660px;
 }
 
@@ -285,19 +311,14 @@ body {
       border-color: #3B3936;
 }
 
-#gallery-container {
-
-
-}
-
 #next-button {
     position: absolute;
-    top: 100px;
+    top: 250px;
     right: 35px;
 }
 
 #previous-button {
     position: absolute;
-    top: 100px;
+    top: 250px;
     left: 10px;
 }

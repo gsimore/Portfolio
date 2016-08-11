@@ -40,7 +40,7 @@ if ( typeof Object.create !== 'function' ) {
 
 				self.elem = elem;
 				self.$elem = $( elem );
-        self.setElements("show");
+
 				self.imageSrc = self.$elem.data("zoom-image") ? self.$elem.data("zoom-image") : self.$elem.attr("src");
 
 				self.options = $.extend( {}, $.fn.elevateZoom.options, options );
@@ -206,7 +206,7 @@ if ( typeof Object.create !== 'function' ) {
 					self.lensStyle = "background-position: 0px 0px;width: " + String((self.options.zoomWindowWidth)/self.widthRatio) + "px;height: " + String((self.options.zoomWindowHeight)/self.heightRatio)
 					+ "px;float: right;display: none;"
 					+ "overflow: hidden;"
-					+ "z-index: 9999;"
+					+ "z-index: 999;"
 					+ "-webkit-transform: translateZ(0);"
 					+ "opacity:"+(self.options.lensOpacity)+";filter: alpha(opacity = "+(self.options.lensOpacity*100)+"); zoom:1;"
 					+ "width:"+lensWidth+"px;"
@@ -236,7 +236,6 @@ if ( typeof Object.create !== 'function' ) {
 
 					self.lensStyle = "background-position: 0px 0px;"
 						+ "float: left;display: none;"
-						+ "z-index: 9999;"
 						+ "border: " + String(self.options.borderSize) + "px solid " + self.options.borderColour+";"
 						+ "width:"+ String(self.options.lensSize) +"px;"
 						+ "height:"+ String(self.options.lensSize)+"px;"
@@ -448,7 +447,7 @@ if ( typeof Object.create !== 'function' ) {
 
 				}).mouseleave(function(){
 					if(!self.scrollLock){
-//						self.setElements("hide");
+						self.setElements("hide");
             self.options.onDestroy(self.$elem);
 					}
 				});

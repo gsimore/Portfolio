@@ -1,33 +1,35 @@
 {% extends 'head.html' %}
 
 {% block background %}
-    <div class="horizon scroll">
-      <img src="/static/img/background.png" alt="" />
+    <div id="horizon" class="horizon scroll">
     </div>
 
-    <div class="middle scroll">
-      <img src="/static/img/middle-1.png" alt="" />
+    <div id="middle" class="mid scroll">
+      <img src="/static/img/tree.png">
     </div>
 
 {% endblock %}
 
 
 {% block content %}
+<div id="gallery-welcome-container" class="scroll">
+    <div id="gallery-welcome" class="title-text">
+        <b> {{ page.subtitle }} </b>
+    </div>
+</div>
+
 <div class="front scroll">
 
-      <div id="gallery-welcome" class="title-text">
-        <b> {{ page.subtitle }} </b>
-       </div>
+    <div id="gallery-container">
+     {% for piece in pieces %}
 
-       <div id="gallery-container">
-       {% for piece in pieces %}
+        {% if piece.orientation == 'L' or piece.orientation == 'O' %}
+        <div id="collage-02" class="collage-tile-l gallery-item">
 
-          {% if piece.orientation == 'L' or piece.orientation == 'O' %}
+        {% elif piece.orientation == 'P' %}
+        <div id="collage-02" class="collage-tile-p gallery-item">
 
-        <div id="collage-02" class="collage-tile-2">
-          {% elif piece.orientation == 'P' %}
-          <div id="collage-02" class="collage-tile-p">
-            {% endif %}
+        {% endif %}
 
             <div id="image-02" class="painting-2">
                 <a href="{% url 'piece_detail' slug=piece.slug %}">

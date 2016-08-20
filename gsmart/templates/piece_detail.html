@@ -16,6 +16,7 @@
 {% block content %}
 
   <div class="front-small scroll">
+
       <h3 class="txt detail-intro">G.S-M./Art</h3>
 
       <a id="previous-button" class="btn btn-lg" href="/art/{{previous_slug}}">
@@ -26,49 +27,34 @@
         <span class="glyphicon glyphicon-chevron-right"></span>
       </a>
 
-  {% if piece.orientation == 'L' or piece.orientation == 'O' %}
+      <div class="detail-parent">
 
-      <div id="piece-title" class="detail-plaque">
-          <span class="title-text"><b>{{  piece.title  }}</b></span>
-          <br>
-          <span class="sub-text">{{piece.medium}}</span>
-          <br>
-          <span class="sub-text2">{{piece.width_in}} in x {{piece.height_in}} in </span>
-          <br>
-          <br>
-          <span class="sub-text3">{{ piece.description}}</span>
-          <a href="{% url 'contact' %}" class="btn btn-secondary btn-lg active" role="button">Request Quote</a>
-      </div>
+          <div id="piece-title" class="detail-plaque detail-item">
+              <span class="title-text"><b>{{  piece.title  }}</b></span>
+              <br><span class="sub-text">{{piece.medium}}</span>
+              <br><span class="sub-text2">{{piece.width_in}} in x {{piece.height_in}} in </span>
+              <br>
+              <br><span class="sub-text3">{{ piece.description}}</span>
+              <br><a href="{% url 'contact' %}" class="btn btn-secondary btn-lg active" role="button">Request Quote</a>
+          </div>
 
-      <div class="img-detail">
-          <img id="zoom_01" src="{{piece.small_image.url}}" data-zoom-image="{{piece.large_image.url}}"/>
-      </div>
+          {% if piece.orientation == 'L' or piece.orientation == 'O' %}
+          <div class="img-detail detail-item">
+              <img id="zoom_01" src="{{piece.small_image.url}}" data-zoom-image="{{piece.large_image.url}}"/>
+          </div>
 
-  {% elif piece.orientation == 'P' %}
+          {% elif piece.orientation == 'P' %}
+          <div class="img-detail-p detail-item">
+              <img id="zoom_02" src="{{piece.thumbnail_image.url}}" data-zoom-image="{{piece.large_image.url}}"/>
+          </div>
 
-    <div id="piece-title" class="detail-plaque">
-        <span class="title-text"><b>{{  piece.title  }}</b></span>
-        <br>
-        <span class="sub-text">{{piece.medium}}</span>
-        <br>
-        <span class="sub-text2">{{piece.width_in}} in x {{piece.height_in}} in </span>
-        <br>
-        <br>
-        <span class="sub-text3">{{ piece.description}}</span>
+          <div id="zoom-container-container" class="detail-item">
+              <div id="zoom-container">
+              </div>
+          </div>
+          {% endif %}
+
     </div>
-
-    <div class="img-detail-p">
-        <img id="zoom_02" src="{{piece.thumbnail_image.url}}" data-zoom-image="{{piece.large_image.url}}"/>
-    </div>
-
-    <div id="zoom-container-container">
-        <div id="zoom-container">
-            <img id="zoom-placeholder" src="/static/img/zoom-default.png">
-          <span class="info-text"></span>
-        </div>
-    </div>
-
-  {% endif %}
 
 </div>
 {% endblock %}

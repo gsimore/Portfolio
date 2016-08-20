@@ -12,29 +12,27 @@
 
 
 {% block messages %}
-
+<!-- messages broken; attempting to display form submission and error messages-->
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 {% endblock %}
 
 
 {% block content %}
-
-{% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
-{% endif %}
-
-    <div class="front-contact scroll">
-
-        <h1>Contact</h1>
-        <form role="form" action="" method="post">
+    <div class="front-contact scroll contact-parent">
+        <h1 class="contact-item">Contact</h1>
+        <form class="contact-item" role="form" action="" method="post">
             {% csrf_token %}
+            <br>
             {{ form.as_p }}
+            <br>
             <button type="submit">Submit</button>
         </form>
-
     </div>
 
 {% endblock %}

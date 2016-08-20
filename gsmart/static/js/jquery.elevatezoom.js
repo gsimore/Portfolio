@@ -236,6 +236,7 @@ if ( typeof Object.create !== 'function' ) {
 
 					self.lensStyle = "background-position: 0px 0px;"
 						+ "float: left;display: none;"
+						+ "z-index: 9999;"
 						+ "border: " + String(self.options.borderSize) + "px solid " + self.options.borderColour+";"
 						+ "width:"+ String(self.options.lensSize) +"px;"
 						+ "height:"+ String(self.options.lensSize)+"px;"

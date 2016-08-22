@@ -5,7 +5,7 @@
 {% block background %}
 
     <div class="horizon-small">
-      <img id="detail-background" style="height: 100%;" src="/static/img/single-gallery-wall.png" alt="" />
+      <img id="detail-background" src="/static/img/single-gallery-wall.png" alt="" />
     </div>
 
 {% endblock %}
@@ -24,15 +24,19 @@
 
 
 {% block content %}
-    <div class="front-contact scroll contact-parent">
-        <h1 class="contact-item">Contact</h1>
-        <form class="contact-item" role="form" action="" method="post">
-            {% csrf_token %}
-            <br>
-            {{ form.as_p }}
-            <br>
-            <button type="submit">Submit</button>
-        </form>
+    <div class="front-contact scroll">
+        <div class="contact-parent">
+            <h1 id="contact" class="contact-item">Contact</h1>
+            <table>
+                <form id="contact-form" class="contact-item" role="form" action="" method="post">
+                    {% csrf_token %}
+                    <br>
+                    {{ form.as_table }}
+                    <br>
+                    <button type="submit">Submit</button>
+                </form>
+            </table>
+        </div>
     </div>
 
 {% endblock %}

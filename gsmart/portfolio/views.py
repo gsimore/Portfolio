@@ -11,7 +11,6 @@ from .models import *
 # Create your views here.
 
 def home(request):
-    page = Page.objects.get(slug="home")
 
     return render(request, 'home.html')
 
@@ -62,11 +61,11 @@ def contact(request):
     return render(request, 'contact.html', {'form': form_class, 'page':page})
 
 
+
 def about(request):
     page = Page.objects.get(slug="about")
 
     return render(request, 'about.html', {'page':page})
-
 
 def gallery(request):
     page = Page.objects.get(slug="gallery")
@@ -76,7 +75,6 @@ def gallery(request):
 
 
 def piece_detail(request, slug):
-    page = Page.objects.get(slug="art")
     piece = Piece.objects.get(slug=slug)
     slugs = [i.slug for i in Piece.objects.order_by('image_rank')]
     current_index = slugs.index(piece.slug)

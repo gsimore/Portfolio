@@ -9,4 +9,4 @@ class ContactForm(forms.Form):
             super(ContactForm, self).__init__(*args, **kwargs)
             self.fields['contact_name'].label = "Your name:"
             self.fields['contact_email'].label = "Your email:"
-            self.fields['content'].label = "What do you want to say?"
+            self.fields['content'].label = "Content:"

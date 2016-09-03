@@ -189,6 +189,7 @@ body {
     font-family: basic;
     opacity: 0.5;
     margin: 15px;
+    margin-top: 30px;
     float: right;
 }
 
@@ -196,7 +197,8 @@ body {
     width: 110px;
     font-size: 0.8em;
     opacity: 1;
-    left: -120px;
+    margin: 5px;
+    margin-top: 15px;
 }
 
 .detail-parent {

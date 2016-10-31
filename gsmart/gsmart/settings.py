@@ -126,7 +126,7 @@ STATICFILES_DIRS = [
 ]
 
 
-MEDIA_ROOT = "/home/gabrielle/Documents/Portfolio/gsmart/static/img/uploads/"
+MEDIA_ROOT = "/home/gabrielle/Git/Portfolio/gsmart/static/img/uploads/"
 MEDIA_URL = '/media/'
 
 

@@ -18,7 +18,7 @@ from django.contrib import admin
 from portfolio import views
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-import settings
+from . import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),

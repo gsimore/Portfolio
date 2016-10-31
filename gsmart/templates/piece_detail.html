@@ -2,7 +2,6 @@
 
 {% block background %}
     <div class="horizon-small">
-      <img id="detail-background" style="height: 100%;" src="/static/img/single-gallery-wall.png" alt="" />
     </div>
 
 <!--
@@ -19,40 +18,67 @@
 
       <h3 class="txt detail-intro">G.S-M./Art</h3>
 
-      <a id="previous-button" class="btn btn-lg" href="/art/{{previous_slug}}">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-      </a>
-
-      <a id="next-button" class="btn btn-lg" href="/art/{{next_slug}}">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-      </a>
-
       <div class="detail-parent">
 
-          <div id="piece-title" class="detail-plaque detail-item">
-              <span class="title-text"><b>{{  piece.title  }}</b></span>
-              <br><span class="sub-text">{{piece.medium}}</span>
-              <br><span class="sub-text2">{{piece.width_in}} in x {{piece.height_in}} in </span>
-              <br>
-              <br><span class="sub-text3">{{ piece.description}}</span>
-              <br><a href="{% url 'contact' %}" class="btn btn-secondary btn-lg active" role="button">Request Quote</a>
+          <div class="detail-item">
+              <a id="previous-button" class="arrow-buttons btn btn-lg" href="/art/{{previous_slug}}">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+              </a>
           </div>
 
-          {% if piece.orientation == 'L' or piece.orientation == 'O' %}
-          <div class="img-detail detail-item">
-              <img id="zoom_01" src="{{piece.small_image.url}}" data-zoom-image="{{piece.large_image.url}}"/>
-          </div>
+          {% if piece.orientation == 'L' %}
+              <div class="detail-item">
+                  <div class="img-detail">
+                      <img id="zoom_01" src="{{piece.small_image.url}}" data-zoom-image="{{piece.large_image.url}}"/>
+                  </div>
 
-          {% elif piece.orientation == 'P' %}
-          <div class="img-detail-p detail-item">
-              <img id="zoom_02" src="{{piece.thumbnail_image.url}}" data-zoom-image="{{piece.large_image.url}}"/>
-          </div>
-
-          <div id="zoom-container-container" class="detail-item">
-              <div id="zoom-container">
+                  <a href="{% url 'contact' %}" id="request-quote" class="btn btn-lg active" role="button">Request Quote</a>
               </div>
-          </div>
+
+              <div class="detail-item">
+                  <div id="detail-plaque-l" class="detail-plaque">
+                      <span class="title-text"><b>{{  piece.title  }}</b></span>
+                      <br><span class="sub-text">{{piece.medium}}</span>
+                      <br><span class="sub-text2">{{piece.width_in}} in x {{piece.height_in}} in </span>
+                      <br>
+                      <br><span class="sub-text3">{{ piece.description}}</span>
+                  </div>
+
+                  <div id="zoom-container-container-l">
+                      <div id="zoom-container-l">
+                      </div>
+                  </div>
+              </div>
+
+          {% elif piece.orientation == 'P' or piece.orientation == 'O' %}
+              <div class="detail-item">
+                  <div id="detail-plaque-p" class="detail-plaque">
+                      <span class="title-text"><b>{{  piece.title  }}</b></span>
+                      <br><span class="sub-text">{{piece.medium}}</span>
+                      <br><span class="sub-text2">{{piece.width_in}} in x {{piece.height_in}} in </span>
+                      <br>
+                      <br><span class="sub-text3">{{ piece.description}}</span>
+                  </div>
+                  <a href="{% url 'contact' %}" id="request-quote" class="btn btn-lg btn-block active" role="button">Request Quote</a>
+              </div>
+
+              <div class="img-detail-p detail-item">
+                  <img id="zoom_02" src="{{piece.thumbnail_image.url}}" data-zoom-image="{{piece.large_image.url}}"/>
+              </div>
+
+              <div class="detail-item">
+                  <div id="zoom-container-container">
+                      <div id="zoom-container">
+                      </div>
+                  </div>
+              </div>
           {% endif %}
+
+          <div class="detail-item">
+              <a id="next-button" class="arrow-buttons btn btn-lg" href="/art/{{next_slug}}">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+              </a>
+          </div>
 
     </div>
 

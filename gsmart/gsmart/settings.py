@@ -130,9 +130,11 @@ MEDIA_ROOT = "/home/gabrielle/Git/Portfolio/gsmart/static/img/uploads/"
 MEDIA_URL = '/media/'
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = 'testing@example.com'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+DEFAULT_FROM_EMAIL = 'gsimardmoore@gmail.com'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'gsimardmoore@gmail.com'
+EMAIL_HOST_PASSWORD = 'Lizard11'
 EMAIL_USE_TLS = False
-EMAIL_PORT = 1025
+EMAIL_USE_SSL = True
+EMAIL_PORT = 465

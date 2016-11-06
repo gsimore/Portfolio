@@ -22,11 +22,12 @@ from . import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^home/', views.home, name='home'),
-    url(r'^portfolio/', views.gallery, name='gallery'),
-    url(r'^art/(?P<slug>.+)/', views.piece_detail, name='piece_detail'),
+    url(r'^home/$', views.home, name='home'),  # Exposes Show Model instances in List.  Yes. OK.
+    url(r'^gallery/(?P<slug>\w*)/$', views.gallery, name='gallery'),  # Exposes a single Show instance.
+    url(r'^gallery/main/$', views.gallery, name='main_gallery'),  # The Main and Featured Gallery. Hardcoded.
+    url(r'^art/(?P<slug>\w*)/$', views.piece_detail, name='piece_detail'),
     url(r'^contact/$', views.contact, name='contact'),
-    url(r'^about/', views.about, name='about'),
+    url(r'^about/$', views.about, name='about'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

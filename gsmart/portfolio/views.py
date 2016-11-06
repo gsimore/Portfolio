@@ -1,18 +1,24 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.http import HttpResponse
-from .models import Piece
 from portfolio.forms import ContactForm
 from django.template.loader import get_template
 from django.core.mail import EmailMessage
 from django.template import Context
 from django.contrib import messages
-from .models import *
-# Create your views here.
+from .models import Piece, Post, Show, Page
+
 
 def home(request):
+    """
+    TODO: WRITE BETTER DOC STRINGS
+    """
+    shows = Show.objects.order_by('-id')  # TODO: another ordering criteria.
+    page = Page.objects.get(slug="home")
 
-    return render(request, 'home.html')
+    #import pdb; pdb.set_trace()
+    context = {'shows': shows, 'page': page}
+    return render(request, 'home.html', context)
 
 
 def contact(request):
@@ -28,12 +34,8 @@ def contact(request):
 
 
         elif form.is_valid():
-            contact_name = request.POST.get(
-                'contact_name'
-            , '')
-            contact_email = request.POST.get(
-                'contact_email'
-            , '')
+            contact_name = request.POST.get('contact_name', '')
+            contact_email = request.POST.get('contact_email', '')
             form_content = request.POST.get('content', '')
 
             # Email the profile with the
@@ -49,32 +51,33 @@ def contact(request):
             email = EmailMessage(
                 "New contact form submission",
                 content,
-                "Your website" +'',
+                "Your website" + '',
                 ['youremail@gmail.com'],
-                headers = {'Reply-To': contact_email }
+                headers = {'Reply-To': contact_email}
             )
 
             email.send()
             messages.add_message(request, messages.INFO, 'Your message was submitted!')
-            return render(request, 'contact.html', {'form': form_class, 'message':messages, 'page':page})
+            return render(request, 'contact.html', {'form':form_class, 'message': messages, 'page': page})
 
-    return render(request, 'contact.html', {'form': form_class, 'page':page})
-
+    return render(request, 'contact.html', {'form':form_class, 'page': page})
 
 
 def about(request):
     page = Page.objects.get(slug="about")
 
-    return render(request, 'about.html', {'page':page})
+    return render(request, 'about.html', {'page': page})
 
-def gallery(request):
+
+def gallery(request, slug):
     page = Page.objects.get(slug="gallery")
-    pieces = Piece.objects.order_by('image_rank')
+    show = Show.objects.get(slug=slug)
 
     return render(request, 'gallery.html', locals())
 
 
 def piece_detail(request, slug):
+    page = Page.objects.get(slug="art")
     piece = Piece.objects.get(slug=slug)
     slugs = [i.slug for i in Piece.objects.order_by('image_rank')]
     current_index = slugs.index(piece.slug)

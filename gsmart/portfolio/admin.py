@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import  GlobalAttribute, Page, Piece, Post
+from .models import  Page, Piece, Post, Show
 # Register your models here.
 admin.site.register(Piece)
 admin.site.register(Post)
 admin.site.register(Page)
-admin.site.register(GlobalAttribute)
+admin.site.register(Show)

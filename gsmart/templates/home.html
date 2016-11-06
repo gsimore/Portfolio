@@ -1,19 +1,58 @@
 {% extends 'head.html' %}
 
-{% block background %}
 
-    <div class="horizon-small">
-      <img id="detail-background" style="height: 100%;" src="/static/img/single-gallery-wall.png" alt="" />
+{% block background %}
+    <div id="horizon" class="home-horizon scroll">
+    </div>
+
+    <div id="middle" class="home-mid scroll">
+      <img src="/static/img/tree.png">
     </div>
 
 {% endblock %}
 
+
 {% block content %}
 
-    <div class="front-small scroll">
-        <h3 class="txt detail-intro">{{page.website.title}}/{{ page.subtitle }}</h3>
+    <div id="home-welcome-container" class="scroll">
+        <div id="home-content-head" class="title-text">
+            <b> {{ page.subtitle }} </b>
+        </div>
+        <p id="home-written-content"> {{ page.content }} </p>
     </div>
 
-    
+    <div class="home-front scroll">
+
+        <div id="home-gallery-container">
+            <div class="">
+                <a href="#" class="home-gallery-head">Shows  |</a>
+                <a href="#" class="home-gallery-head">  Media  |</a>
+                <a href="#" class="home-gallery-head">  Recent Works</a>
+            </div>
+
+            <div class="home-gallery-parent">
+                {% for show in shows %}
+
+                        <div class="home-gallery-item">
+                            <a href='/gallery/{{ show.slug }}/'>
+                                <div class="img-responsive thumb-img-home" style="background-image: url({{ show.cover_photo.thumbnail_image.url }})">
+                                  <span> {{ show.show_title }} </span>
+                                </div>
+                            </a>
+                        </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+
+    <!-- jQuery invert scroll plugin-->
+    <script src="/static/js/jquery.jInvertScroll.js"></script>
+    <script src="/static/js/custom-scroll.js"></script>
 
 {% endblock %}

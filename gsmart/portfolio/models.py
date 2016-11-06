@@ -1,27 +1,12 @@
 from __future__ import unicode_literals
 from django.utils import text
-
 from django.db import models
 
 
-def singleton(class_):
-  instances = {}
-  def getinstance(*args, **kwargs):
-    if class_ not in instances:
-        instances[class_] = class_(*args, **kwargs)
-    return instances[class_]
-  return getinstance
-
-
-class GlobalAttribute(models.Model):
-    title = models.CharField(max_length=50, default="Website Title")
-
-    def __str__(self):
-        return self.title
-
-
 class Page(models.Model):
-    website = models.ForeignKey(GlobalAttribute)
+    '''
+    Database model for descriptive content of pages on site; allows content to be updated through django admin.
+    '''
     subtitle = models.CharField(max_length=50, default="Sub-Title")
     slug = models.SlugField()
     content = models.TextField()
@@ -39,8 +24,16 @@ class Piece(models.Model):
     Database objects for all piece (artwork) inputs
     '''
     pages = models.ManyToManyField(Page)
-    ORIENTATION_CHOICES = (('L', 'Landscape'), ('P', 'Portrait'), ('O', 'Other'))
-    orientation = models.CharField(max_length=20, choices=ORIENTATION_CHOICES, default='L')
+    ORIENTATION_CHOICES = (
+        ('L', 'Landscape'),
+        ('P', 'Portrait'),
+        ('O', 'Other')
+    )
+    orientation = models.CharField(
+        max_length=20,
+        choices=ORIENTATION_CHOICES,
+        default='L'
+    )
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, blank=True, null=False, editable=False)
     height_in = models.IntegerField()
@@ -54,7 +47,16 @@ class Piece(models.Model):
     draft = models.BooleanField(default=True)
     image_rank = models.IntegerField()
     collage_placement = models.PositiveIntegerField()
-    medium = models.CharField(max_length=100)
+    MEDIUM_CHOICES = (
+        ('OL', 'Oil'),
+        ('PC', 'Pencil'),
+        ('IK', 'Ink'),
+        ('WC', 'Watercolor'),
+        ('DG', 'Digital'),
+        ('MM', 'Mixed Media'),
+        ('OT', 'Other')
+    )
+    medium = models.CharField(max_length=50, choices=MEDIUM_CHOICES, default='OL')
 
     def save(self, *args, **kwargs):
         self.slug = self.title.replace(' ', '_').lower()
@@ -63,16 +65,31 @@ class Piece(models.Model):
     def __str__(self):
         return self.title
 
+
+class Show(models.Model):
+    show_title = models.CharField(max_length=50)
+    slug = models.SlugField(max_length=200, blank=True, null=False, editable=False)
+    show_description = models.TextField()
+    show_pieces = models.ManyToManyField(Piece, related_name='shows')
+    cover_photo = models.OneToOneField(Piece, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = self.show_title.replace(' ', '_').lower()
+        super(Show, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.show_title
+
+
 class Post(models.Model):
+    '''
+    Database objects for any content/blog posts.
+    '''
     title = models.CharField(max_length=100, default="Untitled")
     content = models.TextField()
-    date_created = models.DateTimeField(auto_now = True)
+    date_created = models.DateTimeField(auto_now=True)
     published = models.BooleanField(default=False)
     image = models.ImageField(blank=True, null=True)
 
     def __str__(self):
         return self.title
-
-@singleton
-class About(Post):
-    additional = models.TextField(blank=True, null=True)

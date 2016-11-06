@@ -4,10 +4,6 @@
 
 {% block background %}
 
-    <div class="horizon-small">
-      <img id="detail-background" src="/static/img/single-gallery-wall.png" alt="" />
-    </div>
-
 {% endblock %}
 
 
@@ -24,18 +20,26 @@
 
 
 {% block content %}
-    <div class="front-contact scroll">
+    <div class="front-contact">
         <div class="contact-parent">
             <h1 id="contact" class="contact-item">Contact</h1>
             <table>
                 <form id="contact-form" class="contact-item" role="form" action="" method="post">
                     {% csrf_token %}
                     <br>
-                    {{ form.as_table }}
+                    <p>Your name:
+                        <br> {{ form.contact_name }}
+                    </p>
+                    <p>Your email:
+                        <br> {{ form.contact_email }}
+                    </p>
+                    <p>What would you like to say?
+                        <br>{{ form.content }}
+                    </p>
                     <br>
+                    <input type="submit"/>
                 </form>
             </table>
-            <button type="submit">Submit</button>
         </div>
     </div>
 

@@ -3,7 +3,6 @@
 {% block background %}
 
     <div class="horizon-small">
-      <img id="detail-background" style="height: 100%;" src="/static/img/single-gallery-wall.png" alt="" />
     </div>
 
 {% endblock %}
@@ -11,6 +10,12 @@
 {% block content %}
 
     <div class="front-small">
+        <div id="home-welcome-container" class="scroll">
+            <div id="home-content-head" class="title-text">
+                <b> {{ page.subtitle }} </b>
+            </div>
+            <p id="home-written-content"> {{ page.content }} </p>
+        </div>
     </div>
 
 {% endblock %}

@@ -65,6 +65,7 @@ class Piece(models.Model):
     def __str__(self):
         return self.title
 
+    #def resize_img():
 
 class Show(models.Model):
     show_title = models.CharField(max_length=50)

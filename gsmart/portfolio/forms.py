@@ -1,4 +1,5 @@
 from django import forms
+from .models import Piece
 
 class ContactForm(forms.Form):
     contact_name = forms.CharField(required=True)

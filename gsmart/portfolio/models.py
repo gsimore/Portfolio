@@ -1,5 +1,11 @@
 from __future__ import unicode_literals
 from django.utils import text
+from io import StringIO
+import os
+from django.core.files.base import ContentFile
+from django.core.files.storage import default_storage as storage
+from PIL import Image
+
 from django.db import models
 
 
@@ -41,9 +47,9 @@ class Piece(models.Model):
     description = models.TextField()
     finish_date = models.DateField()
     created = models.DateField()
-    thumbnail_image = models.ImageField()
-    small_image = models.ImageField()
     large_image = models.ImageField()
+    thumbnail_image = models.ImageField(blank=False, null=False, editable=False)
+    small_image = models.ImageField(blank=False, null=False, editable=False)
     draft = models.BooleanField(default=True)
     image_rank = models.IntegerField()
     collage_placement = models.PositiveIntegerField()
@@ -59,13 +65,71 @@ class Piece(models.Model):
     medium = models.CharField(max_length=50, choices=MEDIUM_CHOICES, default='OL')
 
     def save(self, *args, **kwargs):
+        """
+        Make and save the slugs and the thumbnails here.
+        """
         self.slug = self.title.replace(' ', '_').lower()
         super(Piece, self).save(*args, **kwargs)
+        #if self.large_image is None or self.small_image is None:
+        self.make_thumbnail()
 
     def __str__(self):
         return self.title
 
-    #def resize_img():
+    def make_thumbnail(self):
+        """
+        Create and save the thumbnail for the photo (simple resize with PIL).
+        """
+        # open the large_image that was uploaded with PIL Image.open('filepath').
+
+        img_file = storage.open(self.large_image.name, 'r') # convert to file name
+        try:
+            image = Image.open(img_file.name)
+        except FileNotFoundError:
+            print('Image not found.')
+            return False
+
+        # TODO: do conditional logic for orientation and size to resize images
+        height = 300
+        conversion_factor = height/image.height
+        width = conversion_factor * image.width
+
+        THUMB_SIZE = height, width
+
+        # use PIL .thumbnail(size, resample value) which resizes the image
+        image.thumbnail(THUMB_SIZE, Image.ANTIALIAS) # use ANTIALIAS to maintain quality of image
+        img_file.close()
+
+        # Path to save to, name, and extension
+        thumb_name, thumb_extension = os.path.splitext(self.large_image.name)
+        thumb_extension = thumb_extension.lower() # converts string to only lowercase chars
+
+        thumb_filename = thumb_name + '_thumb' + thumb_extension
+
+        # validate file types
+        if thumb_extension in ['.jpg', '.jpeg']:
+            FTYPE = 'JPEG'
+        elif thumb_extension == '.gif':
+            FTYPE = 'GIF'
+        elif thumb_extension == '.png':
+            FTYPE = 'PNG'
+        else:
+            return False    # Unrecognized file type
+
+
+        import pdb; pdb.set_trace()
+
+        # Save thumbnail to in-memory file as StringIO
+        temp_thumb = StringIO(thumb_filename) # makes a new instance of the StringIO class
+        image.save(temp_thumb, FTYPE)
+        temp_thumb.seek(0)
+
+        # Load a ContentFile into the thumbnail field so it gets saved
+        self.thumbnail_image.save(thumb_filename, ContentFile(temp_thumb.read()), save=True)
+        temp_thumb.close()
+
+        return True
+
 
 class Show(models.Model):
     show_title = models.CharField(max_length=50)

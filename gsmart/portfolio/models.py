@@ -62,7 +62,7 @@ class Piece(models.Model):
         ('MM', 'Mixed Media'),
         ('OT', 'Other')
     )
-    medium = models.CharField(max_length=50, choices=MEDIUM_CHOICES, default='OL')
+    medium = models.CharField(max_length=50, choices=MEDIUM_CHOICES, default='Oil')
 
     def save(self, *args, **kwargs):
         """

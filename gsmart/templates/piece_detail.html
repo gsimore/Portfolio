@@ -36,10 +36,10 @@
               <div class="detail-item">
                   <div id="detail-plaque-l" class="detail-plaque">
                       <span class="title-text"><b>{{  piece.title  }}</b></span>
-                      <br><span class="sub-text">{{piece.medium}}</span>
-                      <br><span class="sub-text2">{{piece.width_in}} in x {{piece.height_in}} in </span>
+                      <br><span class="sub-text">{{ piece.get_medium_display }}</span>
+                      <br><span class="sub-text2">{{ piece.width_in }} in x {{ piece.height_in }} in </span>
                       <br>
-                      <br><span class="sub-text3">{{ piece.description}}</span>
+                      <br><span class="sub-text3">{{ piece.description }}</span>
                   </div>
 
                   <div id="zoom-container-container-l">
@@ -52,7 +52,7 @@
               <div class="detail-item">
                   <div id="detail-plaque-p" class="detail-plaque">
                       <span class="title-text"><b>{{  piece.title  }}</b></span>
-                      <br><span class="sub-text">{{piece.medium}}</span>
+                      <br><span class="sub-text">{{piece.get_medium_display}}</span>
                       <br><span class="sub-text2">{{piece.width_in}} in x {{piece.height_in}} in </span>
                       <br>
                       <br><span class="sub-text3">{{ piece.description}}</span>

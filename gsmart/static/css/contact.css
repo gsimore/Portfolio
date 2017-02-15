@@ -1,5 +1,66 @@
-.banner {
-    z-index: 3;
-    width: 10%;
+
+.mid-contact {
     top: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    background: rgba(255,255,255,1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 32%, rgba(230,230,230,1) 66%, rgba(204,204,204,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,255,255,1)), color-stop(32%, rgba(246,246,246,1)), color-stop(66%, rgba(230,230,230,1)), color-stop(100%, rgba(204,204,204,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 32%, rgba(230,230,230,1) 66%, rgba(204,204,204,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 32%, rgba(230,230,230,1) 66%, rgba(204,204,204,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 32%, rgba(230,230,230,1) 66%, rgba(204,204,204,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 32%, rgba(230,230,230,1) 66%, rgba(204,204,204,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cccccc', GradientType=1 );
+    overflow: hidden;
+    width: 50%;
+}
+
+.horizon-contact {
+    top: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    background-image: url('/static/img/contact-paint.jpg');
+    background-repeat: none;
+    background-size: cover;
+}
+
+.front-contact {
+  margin-left: -2em;
+  position: relative;
+  z-index: 10;
+  margin-top: 3em;
+}
+
+.contact-parent {
+	/* height: 65%; */
+	width: 50%;
+	/* margin-top: 7%; */
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-around;
+	/* border-style: solid; */
+	/* border-color: white; */
+	border-width: 1px;
+	overflow-x: hidden;
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+.contact-item {
+
+}
+
+#contact {
+  color: #6B674F;
+}
+
+#contact-form {
+  color: #5E3E2E;
 }

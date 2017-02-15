@@ -29,8 +29,8 @@
                   <div class="img-detail">
                       <img id="zoom_01" src="{{piece.small_image.url}}" data-zoom-image="{{piece.large_image.url}}"/>
                   </div>
-
-                  <a href="{% url 'contact' %}" id="request-quote" class="btn btn-lg active" role="button">Request Quote</a>
+                  <a href="{% url 'contact' %}" id="art-print-button" class="detail-buttons btn btn-lg active" role="button">Buy Prints</a>
+                  <a href="{% url 'contact' %}" id="request-quote" class="detail-buttons btn btn-lg active" role="button">Request Quote</a>
               </div>
 
               <div class="detail-item">
@@ -57,7 +57,8 @@
                       <br>
                       <br><span class="sub-text3">{{ piece.description}}</span>
                   </div>
-                  <a href="{% url 'contact' %}" id="request-quote" class="btn btn-lg btn-block active" role="button">Request Quote</a>
+                  <a href="{% url 'contact' %}" id="request-quote" class="detail-buttons btn btn-lg active" role="button">Request Quote</a>
+                  <a href="{% url 'contact' %}" id="art-print-button" class="detail-buttons btn btn-lg active" role="button">Buy Prints</a>
               </div>
 
               <div class="img-detail-p detail-item">
